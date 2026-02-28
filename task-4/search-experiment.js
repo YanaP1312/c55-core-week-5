@@ -27,38 +27,26 @@ const binarySearch = (array, target) => {
   return null;
 };
 
+function measureSearch(searchFn, label, size, target) {
+  const arr = generateBigArray(size);
+
+  const timerLabel = `${label}: searching for ${target} in array of ${size}`;
+
+  console.time(timerLabel);
+  searchFn(arr, target);
+  console.timeEnd(timerLabel);
+}
+
 //linearSearch
-console.time("Linear Search 1k");
-linearSearch(generateBigArray(1000), 876);
-console.timeEnd("Linear Search 1k");
-
-console.time("Linear Search 100k");
-linearSearch(generateBigArray(100000), 98345);
-console.timeEnd("Linear Search 100k");
-
-console.time("Linear Search 1M");
-linearSearch(generateBigArray(1000000), 998345);
-console.timeEnd("Linear Search 1M");
-
-console.time("Linear Search 10M");
-linearSearch(generateBigArray(10000000), 8000657);
-console.timeEnd("Linear Search 10M");
+measureSearch(linearSearch, "Linear Search", 1000, 876);
+measureSearch(linearSearch, "Linear Search", 100000, 98345);
+measureSearch(linearSearch, "Linear Search", 1000000, 998345);
+measureSearch(linearSearch, "Linear Search", 10000000, 8000657);
 
 console.log("---");
 
 //binarySearch
-console.time("Binary Search 1k");
-binarySearch(generateBigArray(1000), 876);
-console.timeEnd("Binary Search 1k");
-
-console.time("Binary Search 100k");
-binarySearch(generateBigArray(100000), 98345);
-console.timeEnd("Binary Search 100k");
-
-console.time("Binary Search 1M");
-binarySearch(generateBigArray(1000000), 998345);
-console.timeEnd("Binary Search 1M");
-
-console.time("Binary Search 10M");
-binarySearch(generateBigArray(10000000), 8000657);
-console.timeEnd("Binary Search 10M");
+measureSearch(binarySearch, "Binary Search", 1000, 876);
+measureSearch(binarySearch, "Binary Search", 100000, 98345);
+measureSearch(binarySearch, "Binary Search", 1000000, 998345);
+measureSearch(binarySearch, "Binary Search", 10000000, 8000657);

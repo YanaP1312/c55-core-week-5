@@ -1,13 +1,13 @@
 function countAboveThreshold(numbers, threshold) {
-  let totalAboveNumbers = 0;
+  let totalNumbersAboveThreshold = 0;
 
   for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] > threshold) {
-      totalAboveNumbers++;
+      totalNumbersAboveThreshold++;
     }
   }
 
-  return totalAboveNumbers;
+  return totalNumbersAboveThreshold;
 }
 
 // option 2
